@@ -13,8 +13,62 @@
 
 （4)有几个特殊的函数range()、enumerarte()
 
+           for i in range(1, 10, 2):
+           print(i)
+           # 1
+           # 3
+           # 5
+           # 7
+           # 9
+           
+           seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+           lst = list(enumerate(seasons))
+           print(lst)
+           # [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+           lst = list(enumerate(seasons, start=1)) # 下标从 1 开始
+           print(lst)
+           # [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+           
+           languages = ['Python', 'R', 'Matlab', 'C++']
+           for language in languages:
+           print('I love', language)
+           print('Done!')
+           '''
+           I love Python
+           I love R
+           I love Matlab
+           I love C++
+            Done!
+           '''
+           for i, language in enumerate(languages, 2):
+            print(i, 'I love', language)
+           print('Done!')
+           '''
+           2 I love Python
+           3 I love R
+           4 I love Matlab
+           5 I love C++
+           Done!
+           '''
+
 （5）它的推导式很有意思，能把计算、循环、判断都整合到一条语句里。不过要注意它的一些格式：
            列表[] 元组() 字典{} 集合{.....[]}
+           
+           x = [(i, i ** 2) for i in range(6)]
+           
+           a = (x for x in range(10))
+           print(a)
+           # <generator object <genexpr> at 0x0000025BE511CC48>
+           print(tuple(a))
+           # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+           
+           b = {i: i % 2 == 0 for i in range(10) if i % 3 == 0}
+           print(b)
+           # {0: True, 3: False, 6: True, 9: False}
+           
+           c = {i for i in [1, 2, 3, 4, 5, 5, 6, 4, 3, 2, 1]}
+           print(c)
+           # {1, 2, 3, 4, 5, 6}
            
  (6)next()函数：
  
